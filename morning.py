@@ -11,7 +11,8 @@ def vdoh_vidoh(text, time_, period_time):
     time.sleep(time_)
     return period_time + time_
 
-with open(os.path.join("data.json"), encoding = 'utf-8') as file:
+
+with open(os.path.join("data.json"), encoding='utf-8') as file:
     data = json.load(file)
 
 TIME_MEDITATION = data['TIME_MEDITATION']
@@ -26,6 +27,7 @@ TIME_SAMORASVITIE = data['TIME_SAMORAZVITIE']
 
 
 def start_morning():
+    os.system("mode 50,20'")
     input('Выпей стакан воды, жми enter')
     input('Водные процедуры, жми enter')
     input('Заправь постель, enter')
@@ -40,6 +42,7 @@ def start_morning():
         time_period = vdoh_vidoh('Вдох', TIME_VDOH, time_period)
         time_period = vdoh_vidoh('Не дыши', TIME_NO, time_period)
         time_period = vdoh_vidoh('Выдох', TIME_VIDOH, time_period)
+        os.system('clear')
 
     long_beep()
     print()
@@ -68,3 +71,7 @@ def start_morning():
     print()
     input("Заполни дневник")
     input('Ты всё сделал, жми enter')
+
+
+if __name__ == '__main__':
+    start_morning()

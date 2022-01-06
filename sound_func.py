@@ -1,18 +1,17 @@
-import winsound
+from playsound import playsound
 import time
 
+
 def small_beep():
-    frequency = 2000  # Set Frequency To 2500 Hertz
-    duration = 200  # Set Duration To 1000 ms == 1 second
-    winsound.Beep(frequency, duration)
+    playsound('small.wav')
+
 
 def long_beep():
-    frequency = 1000  # Set Frequency To 2500 Hertz
-    duration = 500  # Set Duration To 1000 ms == 1 second
-    winsound.Beep(frequency, duration)
+    playsound('finish.wav')
+
 
 def last_second():
     for _ in range(3):
-        small_beep()
+        playsound('small.wav')
         time.sleep(0.8)
 
