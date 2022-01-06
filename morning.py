@@ -1,5 +1,5 @@
 from sound_func import small_beep, long_beep, last_second
-from usual_func import countdown
+from usual_func import countdown, clear_window
 import time
 import json
 import os
@@ -10,7 +10,6 @@ def vdoh_vidoh(text, time_, period_time):
     small_beep()
     time.sleep(time_)
     return period_time + time_
-
 
 with open(os.path.join("data.json"), encoding='utf-8') as file:
     data = json.load(file)
@@ -64,15 +63,15 @@ def start_morning():
     input('Время медитации, чтобы начать жми enter')
     time_meditation = TIME_MEDITATION
     time_period = 0
-    os.system('clear')
+    clear_window()
     while time_period < time_meditation:
         print()
         time_period = vdoh_vidoh(text_vdoh, TIME_VDOH, time_period)
-        os.system('clear')
+        clear_window()
         time_period = vdoh_vidoh(text_no, TIME_NO, time_period)
-        os.system('clear')
+        clear_window()
         time_period = vdoh_vidoh(text_vidoh, TIME_VIDOH, time_period)
-        os.system('clear')
+        clear_window()
 
     long_beep()
     print()

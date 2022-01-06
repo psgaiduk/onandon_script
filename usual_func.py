@@ -28,7 +28,7 @@ def countdown(time_minutes, text):
             small_beep()
         if i == time_minutes - 1:
             last_second()
-        os.system('clear')
+        clear_window()
     long_beep()
     print()
 
@@ -62,3 +62,7 @@ def return_number(nums, max_len):
         new_num = ''.join([new_num, text_num, '\n'])
 
     return new_num
+
+
+def clear_window():
+    os.system('cls' if os.name == 'nt' else 'clear')
