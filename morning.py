@@ -25,6 +25,33 @@ TIME_NO = 3
 TIME_VIDOH = 5
 TIME_SAMORASVITIE = data['TIME_SAMORAZVITIE']
 
+text_vdoh = '''
+╔══╗──╔══╗─╔══╗╔══╗╔══╗
+║╔╗║──║╔╗║─║╔╗║╚═╗║║╔═╝
+║╚╝╚╗─║║║║─║║║║──║╚╝║──
+║╔═╗║─║║║║─║║║║──║╔╗║──
+║╚═╝║╔╝╚╝╚╗║╚╝║╔═╝║║╚═╗
+╚═══╝╚════╝╚══╝╚══╝╚══╝
+'''
+
+text_no = '''
+╔╗╔╗╔═══╗────╔══╗─╔╗──╔╗╔╗╔╗╔╗╔╗╔╗
+║║║║║╔══╝────║╔╗║─║║──║║║║║║║║║║║║
+║╚╝║║╚══╗────║║║║─║╚══╣║║║║║║║║║║║
+║╔╗║║╔══╝────║║║║─║╔═╗║║║║║║║║║║╔║
+║║║║║╚══╗───╔╝╚╝╚╗║╚═╝║║║╚╝╚╝║║╚╝║
+╚╝╚╝╚═══╝───╚════╝╚═══╩╝╚════╝╚══╝
+'''
+
+text_vidoh = '''
+╔══╗─╔╗──╔╗─╔══╗─╔══╗╔══╗╔══╗
+║╔╗║─║║──║║─║╔╗║─║╔╗║╚═╗║║╔═╝
+║╚╝╚╗║╚══╣║─║║║║─║║║║──║╚╝║──
+║╔═╗║║╔═╗║║─║║║║─║║║║──║╔╗║──
+║╚═╝║║╚═╝║║╔╝╚╝╚╗║╚╝║╔═╝║║╚═╗
+╚═══╝╚═══╩╝╚════╝╚══╝╚══╝╚══╝
+'''
+
 
 def start_morning():
     os.system("mode 50,20'")
@@ -37,11 +64,14 @@ def start_morning():
     input('Время медитации, чтобы начать жми enter')
     time_meditation = TIME_MEDITATION
     time_period = 0
+    os.system('clear')
     while time_period < time_meditation:
         print()
-        time_period = vdoh_vidoh('Вдох', TIME_VDOH, time_period)
-        time_period = vdoh_vidoh('Не дыши', TIME_NO, time_period)
-        time_period = vdoh_vidoh('Выдох', TIME_VIDOH, time_period)
+        time_period = vdoh_vidoh(text_vdoh, TIME_VDOH, time_period)
+        os.system('clear')
+        time_period = vdoh_vidoh(text_no, TIME_NO, time_period)
+        os.system('clear')
+        time_period = vdoh_vidoh(text_vidoh, TIME_VIDOH, time_period)
         os.system('clear')
 
     long_beep()
