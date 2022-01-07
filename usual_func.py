@@ -13,11 +13,12 @@ def add_spaces(text, max_len):
 
 def countdown(time_minutes, text):
     input(f'{text} {time_minutes} минут, жми enter')
-    need_times = [time_minutes // i for i in range(2, 5)]
+    need_times = [time_minutes // 4, time_minutes // 2, time_minutes - time_minutes // 4]
     second_text = 'осталось минут'
     max_len = max([len(text), len(second_text), len(str(time_minutes)) * 4])
     text = add_spaces(text, max_len)
     second_text = add_spaces(second_text, max_len)
+    print(need_times)
     for i in range(time_minutes):
 
         print(f'{text}')
@@ -26,7 +27,7 @@ def countdown(time_minutes, text):
         time.sleep(60)
         if i in need_times:
             small_beep()
-        if i == time_minutes - 1:
+        if i == time_minutes - 2:
             last_second()
         clear_window()
     long_beep()
