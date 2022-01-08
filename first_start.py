@@ -24,7 +24,7 @@ def start_work():
         with open('settings_user.json', 'w+', encoding='utf-8') as file:
             data = {
                 'name_user': name_user,
-                'affirmacii': affirmacii.split(';'),
+                'affirmations': affirmacii.split(';'),
                 'name_growing': name_growing,
                 'name_art': name_art,
                 'date_start': date.today().strftime('%Y-%m-%d'),
