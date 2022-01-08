@@ -12,25 +12,6 @@ def vdoh_vidoh(text, time_, period_time):
     time.sleep(time_)
     return period_time + time_
 
-
-with open('settings_user.json', encoding='utf-8') as file:
-    user_settings = json.load(file)
-
-print(user_settings)
-user_level = user_settings['level']
-affirmations = user_settings['affirmations']
-name_growing = user_settings['name_growing']
-
-all_data = return_settings(user_level)
-time_morning = all_data["time_morning"]
-time_self_development = all_data["time_self_development"]
-exercises = all_data["exercises"]
-time_exercises = all_data["time_exercises"]
-time_relax = all_data["time_relax"]
-time_inhale = all_data["time_inhale"]
-time_delay = all_data["time_delay"]
-time_exhalation = all_data["time_exhalation"]
-
 text_vdoh = '''
 ╔══╗──╔══╗─╔══╗╔══╗╔══╗
 ║╔╗║──║╔╗║─║╔╗║╚═╗║║╔═╝
@@ -60,6 +41,24 @@ text_vidoh = '''
 
 
 def start_morning():
+    with open('settings_user.json', encoding='utf-8') as file:
+        user_settings = json.load(file)
+
+    print(user_settings)
+    user_level = user_settings['level']
+    affirmations = user_settings['affirmations']
+    name_growing = user_settings['name_growing']
+
+    all_data = return_settings(user_level)
+    time_morning = all_data["time_morning"]
+    time_self_development = all_data["time_self_development"]
+    exercises = all_data["exercises"]
+    time_exercises = all_data["time_exercises"]
+    time_relax = all_data["time_relax"]
+    time_inhale = all_data["time_inhale"]
+    time_delay = all_data["time_delay"]
+    time_exhalation = all_data["time_exhalation"]
+
     input('Выпей стакан воды, жми enter')
     input('Водные процедуры, жми enter')
     input('Заправь постель, enter')
