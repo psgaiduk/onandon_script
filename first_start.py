@@ -14,7 +14,12 @@ def check_file(name):
 
 
 def start_work():
-    check_file('history_user.json')
+    was_file = check_file('history_user_morning.json')
+    if not was_file:
+        with open('history_user_morning.json', 'w+', encoding='utf-8') as file:
+            data = []
+            json.dump(data, file)
+    check_file('history_user_evening.json')
     was_file = check_file('settings_user.json')
     if not was_file:
         name_user = input('Введите ваше имя: ')

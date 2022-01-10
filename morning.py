@@ -1,3 +1,5 @@
+from datetime import date, timedelta, datetime
+
 from sound_func import small_beep, long_beep, last_second
 from usual_func import countdown, clear_window
 from data import return_settings
@@ -58,6 +60,30 @@ def start_morning():
     time_inhale = all_data["time_inhale"]
     time_delay = all_data["time_delay"]
     time_exhalation = all_data["time_exhalation"]
+
+    with open('history_user_morning.json', encoding='utf-8') as file:
+        history = json.load(file)
+
+    if history:
+        last_series = history[-1]
+        last_date = datetime.strptime(last_series[-1], '%Y-%m-%d').date()
+        print(last_date)
+        if last_date + timedelta(days=1) < date.today():
+            user_level -= 1
+            if user_level < 1:
+                user_level = 1
+        else:
+            if len(last_series) == 10:
+                user_level += 1
+                print(f'Поздравляю у тебя новый уровень {user_level}')
+                history.append([])
+                last_series = history[-1]
+
+    else:
+        history.append([])
+        last_series = history[-1]
+
+    print(history)
 
     input('Выпей стакан воды, жми enter')
     input('Водные процедуры, жми enter')
