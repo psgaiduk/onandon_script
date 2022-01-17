@@ -90,7 +90,7 @@ def make_exercises(exercises, time_relax, time_exercises):
             clear_window()
 
 
-def start_morning():
+def start_morning(type_work='usual'):
     with open('settings_user.json', encoding='utf-8') as file:
         user_settings = json.load(file)
 
@@ -99,7 +99,7 @@ def start_morning():
     affirmations = user_settings['affirmations']
     name_growing = user_settings['name_growing']
 
-    all_data = return_settings(user_level)
+    all_data = return_settings(user_level, type_work)
     time_morning = all_data["time_morning"]
     time_self_development = all_data["time_self_development"]
     exercises = all_data["exercises"]
@@ -146,4 +146,4 @@ def start_morning():
 
 
 if __name__ == '__main__':
-    start_morning()
+    start_morning('test')

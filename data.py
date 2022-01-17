@@ -1,7 +1,7 @@
 from random import shuffle
 
 
-def return_settings(level):
+def return_settings(level, type_work):
     if level < 10:
         time_morning = 30 + 30 * level
         time_inhale = 5
@@ -97,6 +97,15 @@ def return_settings(level):
     else:
         time_exercises = 60
         time_relax = 10
+
+    if type_work == 'test':
+        time_morning = 1
+        time_inhale = 1
+        time_delay = 1
+        time_exhalation = 1
+        time_self_development = 0
+        time_exercises = 1
+        time_relax = 1
 
     return {
         "time_morning": time_morning,
