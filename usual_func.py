@@ -12,6 +12,7 @@ def add_spaces(text, max_len):
 
 
 def countdown(time_minutes, text):
+    print()
     input(f'{text} {time_minutes} минут, жми enter')
     need_times = [time_minutes // 4, time_minutes // 2, time_minutes - time_minutes // 4]
     second_text = 'осталось минут'
