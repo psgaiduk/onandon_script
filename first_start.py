@@ -10,6 +10,11 @@ def check_file(name):
             pass
         return False
 
+    with open(name, encoding='utf-8') as file:
+        data = file.read()
+        if not data:
+            return False
+
     return True
 
 

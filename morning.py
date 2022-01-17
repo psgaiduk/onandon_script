@@ -115,9 +115,9 @@ def start_morning(type_work='usual'):
     if history:
         last_series = history[-1]
         last_date = datetime.strptime(last_series[-1], '%Y-%m-%d').date()
-        print(last_date)
-        if last_date + timedelta(days=1) < date.today():
-            user_level -= 1
+        days_missed = (date.today() - last_date).days - 1
+        if days_missed > 0:
+            user_level -= days_missed
             if user_level < 1:
                 user_level = 1
         else:
@@ -143,6 +143,20 @@ def start_morning(type_work='usual'):
     print()
     input("Заполни дневник")
     input('Ты всё сделал, жми enter')
+
+    date_str = date.today().strftime("%Y-%m-%d")
+    if date_str not in last_series:
+        last_series.append(date_str)
+    else:
+        print('Сегодня ты уже занимался, это занятие не влияет на уровень')
+
+    user_settings['level'] = user_level
+
+    print(user_settings)
+    with open('history_user_morning.json', 'w', encoding='utf-8') as file_history, \
+            open('settings_user.json', 'w', encoding='utf-8') as setting_user:
+        json.dump(history, file_history)
+        json.dump(user_settings, setting_user)
 
 
 if __name__ == '__main__':
