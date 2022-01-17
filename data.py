@@ -1,4 +1,4 @@
-from random import choice
+from random import shuffle
 
 
 def return_settings(level):
@@ -77,13 +77,18 @@ def return_settings(level):
                    "положения над головой. Прыжком верните в исходное положение."}
     ]
 
+    shuffle(push_exercises_with_info)
+    shuffle(abs_exercises_with_info)
+    shuffle(foot_exercises_with_info)
+    shuffle(stretching_exercises_with_info)
+
     exercises = [
-        choice(start_exercises_with_info),
-        choice(push_exercises_with_info),
-        choice(abs_exercises_with_info),
-        choice(foot_exercises_with_info),
-        choice(stretching_exercises_with_info),
-        choice(stretching_exercises_with_info),
+        start_exercises_with_info[0],
+        push_exercises_with_info[0],
+        abs_exercises_with_info[0],
+        foot_exercises_with_info[0],
+        stretching_exercises_with_info[0],
+        stretching_exercises_with_info[1],
                  ]
 
     if level < 4:
