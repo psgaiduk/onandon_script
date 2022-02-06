@@ -88,7 +88,6 @@ def return_settings(level, type_work):
         abs_exercises_with_info[0],
         foot_exercises_with_info[0],
         stretching_exercises_with_info[0],
-        stretching_exercises_with_info[1],
                  ]
 
     if level < 4:
